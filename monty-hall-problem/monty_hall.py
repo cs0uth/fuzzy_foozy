@@ -16,22 +16,22 @@
 #
 # author: cs0uth @ <saeid.aliei@gmail.com>
 
+from datetime import datetime
+from sys import argv
 import numpy as np
 
-NPLAY = 100000
-
-def play(nplay=NPLAY, stick=True):
+def play(nplay, stick=True):
+	# play nplay times and return results
+	# goat:0, car:1
 	chcs = []
 	if stick:
 		drs = [0, 0, 1]
 		for _ in range(nplay):
-			np.random.shuffle(drs)
 			chc = np.random.choice(drs)
 			chcs.append(chc)
 	if not stick:
 		for _ in range(nplay):
 			drs = [0, 0, 1]
-			np.random.shuffle(drs)
 			idx = np.random.choice(range(len(drs)))
 			del drs[idx]
 			drs.remove(0)
@@ -39,20 +39,24 @@ def play(nplay=NPLAY, stick=True):
 
 	return chcs
 
-
 def main():
-	stChcs = play(stick=True)
-	swChcs = play(stick=False)
-
-	# number of cars(1) in stick mode
+	try:
+		nplay = int(argv[1])
+	except IndexError:
+		print("\nUsage: python monty_hall.py <number-of-plays>\n")
+		exit()
+	ini = datetime.now()
+	stChcs = play(nplay, stick=True)
+	swChcs = play(nplay, stick=False)
+	# number of cars (1's) in stick and switch mode
 	ncarSt = np.count_nonzero(stChcs)
-
-	# number of cars in switch mode
 	ncarSw = np.count_nonzero(swChcs)
+	fin = datetime.now()
 
-	print("\nStatistics after {} plays:" .format(NPLAY))
-	print("\nPercentage of car wins if you stick with initial choice: {}" .format((ncarSt*100)/NPLAY))
-	print("Percentage of car wins if you switch from initial choice: {}" .format((ncarSw*100)/NPLAY))
+	print("\nNumber of games played: {}" .format(nplay))
+	print("\nPercentage of car wins if you stick with initial choice: {}" .format((ncarSt*100)/nplay))
+	print("Percentage of car wins if you switch from initial choice: {}" .format((ncarSw*100)/nplay))
+	print("\nTime took to play: {} (s).\n" .format(fin-ini))
 
 if __name__ == '__main__':
 	main()
