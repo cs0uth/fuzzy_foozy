@@ -1,5 +1,5 @@
-####Monty Hall Problem:
-&nbsp;&nbsp;&nbsp;&nbsp;you're presented with 3 doors in a game show, behind two of them there are 2 goats and behind the other one there is a car, now your given a shot to choose a door, whatever is behind it, you'll get that as a prize, well you'll naturally want the new, shiny car!
+### Monty Hall Problem:
+You're presented with 3 doors in a game show, behind two of them there are 2 goats and behind the other one there is a car, now your given a shot to choose a door, whatever is behind it, you'll get that as a prize, well you'll naturally want the new, shiny car!
 now before they open the door, the game show host always opens a door with a goat and you're given a chance to switch the door you initially chose.
 
 What is the best strategy in the long run:  
