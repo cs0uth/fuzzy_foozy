@@ -11,6 +11,8 @@ although it may seem counterintuitive if you always switch, it is far better tha
 well because the probability of you choosing a goat at first shot is 2/3. but since the host **always** opens a door with a goat behind it, it is more likely that the door left holds the car. In swapping you effectively swapping the probabilities for getting a car and a goat. run the program to see for yourself!
 
 ```
+:> python monty_hall.py 100000
+
 Number of games played: 100000
 
 Percentage of car wins if you stick with initial choice: 33.411
